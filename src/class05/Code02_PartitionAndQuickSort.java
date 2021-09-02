@@ -8,9 +8,9 @@ public class Code02_PartitionAndQuickSort {
 		arr[j] = tmp;
 	}
 
-	// arr[L..R]上，以arr[R]位置的数做划分值
-	// <= X > X
-	// <= X X
+	// arr[L..R]上，以arr[R]位置的数做划分值, arr[r] -> p    <p     ==p      >p
+	// 返回等于区域（左边界 右边界）  所以返回一个长度为2的数组res, res[0] res[1]
+	
 	public static int partition(int[] arr, int L, int R) {
 		if (L > R) {
 			return -1;
@@ -116,7 +116,7 @@ public class Code02_PartitionAndQuickSort {
 			return;
 		}
 		swap(arr, L + (int) (Math.random() * (R - L + 1)), R);
-		int[] equalArea = netherlandsFlag(arr, L, R);
+		int[] equalArea = netherlandsFlag(arr, L, R);  //等于区域的左边界和右边界
 		process3(arr, L, equalArea[0] - 1);
 		process3(arr, equalArea[1] + 1, R);
 	}
